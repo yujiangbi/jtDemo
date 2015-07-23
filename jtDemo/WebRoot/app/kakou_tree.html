@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../plugin/zTree/js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="../plugin/zTree/js/jquery.ztree.excheck-3.5.js"></script>
+<style type="text/css">
+	.kakou-container{
+		overflow-x:auto;
+		height: 300px; 
+	}
+	
+	#kakouTree.ztree li span.button.noline_open{
+		background-image: url("css/img/kakou-open.png");
+		background-position: center center;
+	}
+	
+	#kakouTree.ztree li span.button.noline_close{
+		background-image: url("css/img/kakou-close.png");
+		background-position: center center;
+	}
+	
+	#kakouTree.ztree li a {
+	    margin-bottom: 4px;
+	}
+</style>
+</head>
+<script type="text/javascript">
+	var curMenu = null, zTree_Menu = null;
+	var setting = {
+		check: {
+			enable: true
+		},
+		view: {
+			showLine: false,
+			showIcon: true
+		},
+		data: {
+			simpleData: {
+				enable: true
+			}
+		}
+	};
+	
+	
+	var zNodes =[
+		{ id:1, pId:0, name:"武汉", open:true,icon:"css/img/kakou-file.png"},
+		{ id:11, pId:1, name:"卡口ID",icon:"css/img/kakou-file.png"},
+		{ id:12, pId:11, name:"beidaihe",icon:"css/img/kakou-site.png"},
+		{ id:13, pId:11, name:"changchun",icon:"css/img/kakou-site.png"},
+		{ id:14, pId:11, name:"hangzhou",icon:"css/img/kakou-site.png"},
+		{ id:3, pId:0, name:"违法库", open:true,icon:"css/img/kakou-file.png"},
+		{ id:13, pId:3, name:"组合搜索",icon:"css/img/kakou-file.png"},
+		{ id:14, pId:3, name:"历史记录",icon:"css/img/kakou-file.png"}
+	];
+
+</script>
+<body>
+	<div class="kakou-container dialog">
+		<ul id="kakouTree" class="ztree"></ul>
+	</div>
+	<script type="text/javascript">
+		var treeObj = $("#kakouTree");
+		$.fn.zTree.init(treeObj, setting, zNodes);
+		$.fn.zTree.getZTreeObj("kakouTree");
+		
+		function getKakouCheckedNodes(){
+			var zTree = $.fn.zTree.getZTreeObj("kakouTree");
+			var nodes = zTree.getChangeCheckedNodes();
+			for (var i=0, l=nodes.length; i<l; i++) {
+				if(nodes[i].checked){
+					alert(nodes[i].name);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

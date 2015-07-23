@@ -1,0 +1,318 @@
+.separator-table td img {
+	vertical-align: top;
+}
+
+.large{
+	width: 592px !important;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.show-img {
+	display: inline-block;
+}
+
+.show-img div {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.show-img div a {
+	display: block;
+	margin-left: 8px;
+	margin-bottom: 8px;
+}
+
+.green-skin{
+	background-color: #5ead5e !important;
+	border-color: #3c883c;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.green-skin:hover{
+	background-color: #3c883c !important;
+}
+
+
+.clear {
+	clear: both;
+}
+
+.expand-container {
+	height: 32px;
+	border: 1px solid #A2ABBD;
+	background-color: #fff;
+}
+
+#custom.expand-container{
+	height: 49px;
+	font-size: 14px;
+}
+
+#custom td {
+    vertical-align: top;
+}
+
+td.td-content{
+	padding-right: 10px;
+}
+
+td.td-head{
+	text-align: right;
+}
+
+
+#custom td.td-content{
+	padding-right: 25px;
+}
+
+.expand-container .head.expand {
+    background: #42d4be url("img/query-switch.png") no-repeat scroll center;
+    border-right: 1px solid #3b9b8a;
+    height: 100%;
+    width: 37px;
+    cursor: pointer;
+}
+
+.detail-right {
+	border: 1px solid #81a4e6;
+	left: 0;
+	margin-left: 200px;
+	margin-top: 15px;
+	padding: 12px;
+	position: absolute;
+	right: 11px;
+	width: auto;
+	bottom: 30px;
+}
+
+.plugin-item-wrap {
+	overflow: hidden;
+	padding-bottom: 30px;
+	width: 200px;
+	float: left;
+	padding-right: 15px;
+}
+
+.plugin-item {
+	background-color: #fff;
+	float: left;
+	margin-left: 0;
+	padding-bottom: 10px;
+	position: relative;
+	width: 100%;
+}
+
+.plugin-item .wrap {
+	overflow: hidden;
+	width: 100%;
+}
+
+.plugin-item .foot {
+	height: 35px;
+	overflow: hidden;
+	padding: 10px;
+	background-color: #D6E0EF;
+}
+
+.plugin-item .foot .score{
+	color: red;
+    font-size: 12px;
+    text-align: center;
+}
+
+.plugin-item .foot .content{
+	color: #000;
+    font-size: 14px;
+    text-align: center;
+}
+
+.plugin-item .wrap a>img {
+	transition: all 1s ease 0s;
+	width: 100%;
+	display: block;
+}
+
+.plugin-item .foot div {
+	
+}
+
+.detail-left {
+	width: 200px;
+	height: 200px;
+	padding-top: 15px;
+}
+
+.page {
+	bottom: 0;
+    left: 50%;
+    position: absolute;
+    margin-left: -180px;
+    margin-bottom: 12px;
+}
+
+.separator-table {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.time-query-container {
+	position: relative;
+}
+
+.query{
+	width: 200px;
+    margin-left: 280px;
+    margin-top: 12px;
+}
+
+.pager span{
+	color: #000;
+    float: left;
+    margin-left: 4px;
+    margin-top: 3px;
+}
+
+.pager.default
+ {
+    background-color: inherit;
+    height: 30px;
+    margin: 0 auto;
+    padding: 10px 0 0 10px;
+    width: 360px;
+    
+ }
+.default.normal
+ {
+     background-color: #588500;
+     border: solid 1px #5f9000;
+ }
+ .default.active
+ {
+     background-color: #344C00;
+     color: #F8EB00;
+     border: solid 1px #5f9000;
+ }
+ .default .btn
+ {
+    cursor: pointer;
+    color:white;
+    display: inline-block;
+    line-height: normal;
+    margin: 0;
+    outline: medium none;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    background-color: #4693f4;
+	border-color: #2564b4;
+	border-width: 1px;
+	border-style: solid;
+    margin: 0 12px;
+ }
+ .pager.default ul{
+ 	display: none;	
+ }
+ .pager.default .short{
+ 	display: none;	
+ }
+ .pager.default .btn{
+ 	width:90px;
+ 	padding: 2px 2px;
+ }
+ .pager.default .btn.last,.pager.default .btn.first{
+ 	display: none;
+ }
+ .expand-text{
+ 	font-size: 12px;
+ 	margin-left: 7px;
+ 	line-height: 30px;
+ }
+ 
+ .block{
+ 	height: 70px;
+ }
+ 
+ .result-overview > p{
+ 	display: inline-block;
+ 	margin: 0;
+ 	padding: 0;
+ 	vertical-align: middle;
+ }
+ 
+.result-overview > p > span {
+    color: red;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+.result-overview{
+	position: absolute; 
+	bottom: 3px; 
+	right: 12px;
+}
+
+.ZebraDialog .ZebraDialog_Title{
+	border-radius:0px;
+	background-color: #0072D2;
+}
+
+.ZebraDialog .ZebraDialog_ButtonsOuter{
+	border-radius:0px;
+	background-color: #E3E6EE;
+}
+
+.ZebraDialog .ZebraDialog_Title, .ZebraDialog .ZebraDialog_BodyOuter, .ZebraDialog .ZebraDialog_ButtonsOuter{
+	border-color: #0072D2;
+    border-width: 2px;
+}
+.ZebraDialog .ZebraDialog_Information{
+	background-image: none;
+}
+
+.ZebraDialog .ZebraDialog_Icon{
+	padding-left: 0px;
+}
+.ZebraDialog .ZebraDialog_Body{
+	 border-top-width: 0px;
+	 border-bottom-style:none;
+}
+.ZebraDialog .ZebraDialog_BodyOuter{
+	border-color: #0072D2;
+    border-width: 2px;
+    border-top-width: 0;
+}
+.ZebraDialog .ZebraDialog_ButtonsOuter {
+    border-color: #0072D2;
+    border-width: 2px;
+}
+
+.ZebraDialog .ZebraDialog_Buttons a {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    background-color: #5ead5e !important;
+    background-image:none;
+    border-bottom-radius:0.2em;
+}
+
+.ZebraDialog .ZebraDialog_Buttons a:hover {
+    background-color: #3c883c !important;
+    background-image:none;
+}
+
+.ZebraDialog .ZebraDialog_Body{
+	padding: 10px;
+}
+
+.dialog{
+	border: 1px solid #B1C3D1;
+}

@@ -1,0 +1,176 @@
+.hide{
+	display: none;	
+}
+body a{outline:none;blr:expression(this.onFocus=this.blur());}
+
+
+select{
+	border:none;
+    height: 29px;
+    width: 235px;
+    background: transparent none repeat scroll 0 0
+}
+
+.select-container{
+	border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-style: solid;
+    border-width: 1px;
+	width: 216px;
+	background: #ffffff url("img/select.png") no-repeat scroll right center;
+    overflow: hidden;
+}
+
+
+input[type="text"], input[type="password"] {
+	border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-style: solid;
+    border-width: 1px;
+    height: 29px;
+    width: 213px;
+}
+
+input[type="text"]:FOCUS, input[type="password"]:FOCUS {
+	border-color: #478de3;
+}
+
+input {
+    font-family: "Lucida Grande",Tahoma,Verdana,sans-serif;
+    font-size: 14px;
+}
+
+
+input + .time{
+	background-image: url("img/time.png");
+}
+
+input + .date{
+	background-image: url("img/date.png");
+}
+
+input + .search{
+	background-image: url("img/search-icon.png");
+}
+
+
+input + .icon{
+    cursor: pointer;
+    display: inline-block;
+    height: 32px;
+    margin-left: -32px;
+    margin-top: -4px;
+    vertical-align: bottom;
+    width: 32px;
+}
+
+
+input:focus + .time,input + .time:hover{
+	background-image:url("img/time-focus.png");
+}
+
+input:focus + .date,input + .date:hover{
+	background-image:url("img/date-focus.png");
+}
+
+input:focus + .search,input + .search:hover{
+	background-image:url("img/search-focus.png");
+}
+
+
+.button {
+    background-color: #4693f3;
+    border-radius: 0.2em;
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    line-height: normal;
+    margin: 0;
+    outline: medium none;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+	border-color: #2564b4;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.btn-icon-left {
+    display: inline-block;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    vertical-align: top;
+}
+
+.btn-icon-left .btn-icon {
+    left: 4px;
+}
+.icon-upload {
+    background: rgba(0, 0, 0, 0) url("img/icon-upload.png") no-repeat scroll center center;
+}
+
+.icon-area {
+    background: rgba(0, 0, 0, 0) url("img/icon-area.png") no-repeat scroll center center;
+}
+
+.icon-export{
+	background: rgba(0, 0, 0, 0) url("img/icon-export.png") no-repeat scroll center center;
+}
+
+.icon-search{
+	background: rgba(0, 0, 0, 0) url("img/search.png") no-repeat scroll center center;
+}
+
+.btn-icon {
+    display: inline-block;
+    font-size: 1px;
+    height: 19px;
+    line-height: 16px;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    width: 34px;
+}
+
+
+.btn-icon-left .btn-text {
+    margin: 0 4px 0 38px;
+}
+.btn-text {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 30px;
+    padding: 0;
+    vertical-align: top;
+    width: auto;
+    color: #fff;
+    font-weight: normal;
+}
+.mini .btn-text{
+	line-height: 20px;
+}
+
+.mini .btn-icon{
+	margin-top: -10px;
+}
+
+
+.button:hover {
+     background-color: #2564b4;
+}
+
+.button.arrowup.icon::before {
+    background-position: 0 0;
+}
+.button.icon::before {
+    background-image:url("img/expand.jpg");
+    content: "";
+    float: left;
+    height: 12px;
+    margin: 0 0.75em 0 -0.25em;
+    position: relative;
+    top: 1px;
+    width: 12px;
+}

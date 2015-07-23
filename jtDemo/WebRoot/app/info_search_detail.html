@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>图片详情</title>
+<script type="text/javascript" src="../plugin/jquery-1.4.4.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+	
+		$.ajax({
+			url:'index.html',
+			success:function(text){
+				$('body').html(text);
+				initDetail();
+			}
+		});
+		
+		function initDetail(){
+			$.ajax({
+				url:'info_search_detail_body.html',
+				success:function(text){
+					$('#page-content').html(text);
+				}
+			});
+		}
+	</script>
+</body>
+</html>

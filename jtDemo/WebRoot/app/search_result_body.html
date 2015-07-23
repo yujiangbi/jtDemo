@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>图片列表</title>
+</head>
+<body>
+	<div id="content-container" class="hide">
+		<div class="fl detail-left">
+			<img alt="" src="css/img/img.jpg">
+		</div>
+		<div class="fl detail-right">
+			<div>
+				<div class="plugin-item-wrap">
+					<div class="plugin-item">
+						<div class="wrap">
+							<a target="_blank" href=""><img src="css/img/img.jpg"></a>
+						</div>
+						<div class="foot">
+							<div class="score">照片相似度：1</div>
+							<div class="content">车辆型号：客车-丰田</div>
+						</div>
+					</div>
+				</div>
+				<div class="plugin-item-wrap">
+					<div class="plugin-item">
+						<div class="wrap">
+							<a target="_blank" href=""><img src="css/img/img.jpg"></a>
+						</div>
+						<div class="foot">
+							<div class="score">照片相似度：1</div>
+							<div class="content">车辆型号：客车-丰田</div>
+						</div>
+					</div>
+				</div>
+				<div class="plugin-item-wrap">
+					<div class="plugin-item">
+						<div class="wrap">
+							<a target="_blank" href=""><img src="css/img/img.jpg"></a>
+						</div>
+						<div class="foot">
+							<div class="score">照片相似度：1</div>
+							<div class="content">车辆型号：客车-丰田</div>
+						</div>
+					</div>
+				</div>
+				<div class="clear block"></div>
+				<div class="page">
+					<div id="smart-paginator"></div>
+				</div>
+			</div>
+		</div>
+		<div class="result-overview">
+			<p>搜索总数数量<span>1243</span>条&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;匹配数据量<span>12</span>条&nbsp;&nbsp;</p>
+			<a class="button"> 
+				<span class="btn-icon-left mini" id="exportBtn"> 
+						<span class="btn-text">导出</span>
+						<span class="btn-icon icon-export"> </span>
+				</span>
+		    </a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		initPaginator();
+		initImgHref();
+		function initImgHref(){
+			if(curMenu == "信息搜索" || curMenu == "历史记录"){
+				$('.wrap > a').attr("href","info_search_detail.html");
+			}else{
+				$('.wrap > a').attr("href","pic_compare_detail.html");
+			}
+		}
+		function initPaginator(){
+			$('#smart-paginator').smartpaginator({ 
+	            totalrecords: 50, 
+	            recordsperpage: 4, 
+	            next: '下一页', 
+	            prev: '上一页', 
+	            first: '首页', 
+	            last: '末页', 
+	            go: '前往',
+	            theme: 'default', 
+	            initval: 1,
+	            controlsalways:true
+	        });
+		};
+	</script>
+</body>
+</html>

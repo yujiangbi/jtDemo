@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function initPaginator(){
+		$('#smart-paginator').smartpaginator({ 
+            totalrecords: 50, 
+            recordsperpage: 4, 
+            next: '下一页', 
+            prev: '上一页', 
+            first: '首页', 
+            last: '末页', 
+            go: '前往',
+            theme: 'default', 
+            initval: 1,
+            controlsalways:true
+        });
+	};
+	
+</script>
+</head>
+<body>
+	<div id="query-container">
+		<div id="usual" class="usual">
+			<ul>
+				<li><a class="selected" href="#tab1">按时间搜索</a></li>
+				<li><a href="#tab2">按时段所搜索</a></li>
+			</ul>
+			<div id="tab1">
+				<div class="time-query-container">
+					<table class="separator-table">
+						<tr>
+							<td rowspan="2"><img alt="" src="css/img/fgf.png"></td>
+							<td class="">起始日期：</td>
+							<td><input type="text"><span class="icon date"></span></td>
+							<td rowspan="2"><span
+								style="display: inline-block; margin-top: 14px;">至</span> <img
+								alt="" src="css/img/fgf.png"></td>
+							<td>结束日期：</td>
+							<td class="td-content"><input type="text"><span class="icon date"></span></td>
+							<td class="td-head">车辆品牌：</td>
+							<td>
+								<div class="select-container">
+									<select>
+										<option>全部</option>
+										<option>本田</option>
+										<option>大众</option>
+									</select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>起始时间：</td>
+							<td class="td-content"><input type="text"><span class="icon time"></span></td>
+							<td>结束时间：</td>
+							<td class="td-content"><input type="text"><span class="icon time"></span></td>
+							<td class="td-head">是否系安全带：</td>
+							<td class="td-content">
+								<div class="select-container">
+									<select>
+										<option>不限</option>
+										<option>是</option>
+										<option>否</option>
+									</select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>车辆大小：</td>
+							<td class="td-content">
+								<div class="select-container">
+									<select>
+										<option>不限</option>
+										<option>大小1</option>
+										<option>大小2</option>
+									</select>
+								</div>
+							</td>
+							<td></td>
+							<td>车辆型号：</td>
+							<td class="td-content">
+								<div class="select-container">
+									<select>
+										<option>不限</option>
+										<option>A8</option>
+										<option>A4L</option>
+									</select>
+								</div>
+							</td>
+							<td class="td-head">车辆型号快速输入：</td>
+							<td><input type="text"></td>
+						</tr>
+						
+						<tr>
+							<td></td>
+							<td>车辆颜色：</td>
+							<td class="td-content">
+								<div class="select-container">
+									<select>
+										<option>不限</option>
+										<option>红</option>
+										<option>白</option>
+									</select>
+								</div>
+							</td>
+							<td></td>
+							<td>卡口范围：</td>
+							<td colspan="4"><input type="text" class="large"><span class="icon search"></span></td>
+						</tr>
+						<tr>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				<div>
+					<a class="button query queryBtn" style="width: 170px;"> 
+							<span class="btn-icon-left"> 
+									<span class="btn-text">搜索</span>
+									<span class="btn-icon icon-remove"> </span>
+							</span>
+					</a>
+				</div>
+			</div>
+			<div id="tab2">
+				<div class="time-query-container">
+					<table class="separator-table">
+						<tr>
+							<td rowspan="4" style="width: 15px;"></td>
+							<td class="">起始日期：</td>
+							<td><input type="text"><span class="icon date"></span></td>
+							<td><span style="margin-right: 19px;">至<span></td>
+							<td>结束日期：</td>
+							<td class="td-content"><input type="text"><span class="icon date"></span></td>
+							<td class="td-head">车辆品牌：</td>
+							<td>
+								<div class="select-container">
+									<select>
+										<option>全部</option>
+										<option>本田</option>
+										<option>大众</option>
+									</select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>起始时间：</td>
+							<td class="td-content"><input type="text"><span class="icon time"></span></td>
+							<td><span style="margin-right: 19px;">至<span></td>
+							<td>结束时间：</td>
+							<td class="td-content"><input type="text"><span class="icon time"></span></td>
+							<td class="td-head">是否系安全带：</td>
+							<td class="td-content">
+								<div class="select-container">
+									<select>
+										<option>不限</option>
+										<option>是</option>
+										<option>否</option>
+									</select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>车辆大小：</td>
+							<td class="td-content">
+								<div class="select-container">
+									<select>
+										<option>不限</option>
+										<option>大小1</option>
+										<option>大小2</option>
+									</select>
+								</div>
+							</td>
+							<td></td>
+							<td>车辆型号：</td>
+							<td class="td-content">
+								<div class="select-container">
+									<select>
+										<option>不限</option>
+										<option>A8</option>
+										<option>A4L</option>
+									</select>
+								</div>
+							</td>
+							<td class="td-head">车辆型号快速输入：</td>
+							<td><input type="text"></td>
+						</tr>
+						
+						<tr>
+							<td>车辆颜色：</td>
+							<td class="td-content">
+								<div class="select-container">
+									<select>
+										<option>不限</option>
+										<option>红</option>
+										<option>白</option>
+									</select>
+								</div>
+							</td>
+							<td></td>
+							<td>卡口范围：</td>
+							<td colspan="4"><input type="text" class="large"><span class="icon search"></span></td>
+						</tr>
+						<tr>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				<div>
+					<a class="button query queryBtn" style="width: 170px;"> 
+							<span class="btn-icon-left"> 
+									<span class="btn-text">搜索</span>
+									<span class="btn-icon icon-remove"> </span>
+							</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div id="mini" class="expand-container" region="usual">
+			<div class="fl head expand"></div>
+			<span class="expand-text">隐藏搜索条件</span>
+		</div>
+		
+		<div id="custom" class="expand-container hide" region="usual">
+			<div class="fl head expand"></div>
+			<div class="content">
+				<table>
+					<tr>
+						<td>时间：</td>
+						<td class="td-content">2016-02-15</td>
+						<td>车型：</td>
+						<td class="td-content">奥迪A8</td>
+						<td>车身颜色：</td>
+						<td class="td-content">红色</td>
+					</tr>
+					<tr>
+						<td>地点：</td>
+						<td class="td-content">xx路口</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="search-result">
+	</div>
+	<script type="text/javascript">
+		$("#usual ul").idTabs();
+		$('.expand-container').click(function() {
+			$("#" + $(this).attr("region")).toggle();
+			$('#mini,#custom').toggle();
+			$("#content-container").toggle();
+			dynamicDetailRightHeight();
+		});
+		dynamicDetailRightHeight();
+		initPaginator();
+	</script>
+</body>
+</html>

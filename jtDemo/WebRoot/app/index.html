@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>博雅华录</title>
+<link rel="stylesheet" href="../plugin/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<script type="text/javascript" src="../plugin/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../plugin/zTree/js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="../plugin/idTabs/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="../plugin/smartpaginator/smartpaginator.js"></script>
+<link rel="stylesheet" href="../plugin/idTabs/css/jquery.idTabs.css" type="text/css">
+<link rel="stylesheet" href="../plugin/smartpaginator/smartpaginator.css" type="text/css">
+<script type="text/javascript" src="../plugin/dialog/zebra_dialog.js"></script>
+<link rel="stylesheet" href="../plugin/dialog/zebra_dialog.css" type="text/css">
+<link rel="stylesheet" href="css/base.css" type="text/css">
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="stylesheet" href="css/biz.css" type="text/css">
+<script type="text/javascript">
+	var curMenu = null, zTree_Menu = null;
+	
+	/*zTree配置文件*/
+	var setting = {
+		view: {
+			showLine: false,
+			showIcon: true
+		},
+		data: {
+			simpleData: {
+				enable: true
+			}
+		},
+		callback: {
+			beforeClick: beforeClick,
+			onClick:zTreeClick,
+			addDiyDom: addDiyDom
+		}
+	};
+	
+	/*zTree json数据*/
+	var zNodes =[
+		{ id:1, pId:0, name:"卡口图搜", open:true,icon:"css/img/search.png"},
+		{ id:11, pId:1, name:"图片对比",url:"pic_compare.html"},
+		{ id:12, pId:1, name:"信息搜索",url:"info_search.html"},
+		{ id:13, pId:1, name:"组合搜索",url:"composite_search.html"},
+		{ id:14, pId:1, name:"历史记录",url:"history.html"},
+		{ id:3, pId:0, name:"违法库", open:true,icon:"css/img/file.png"}	
+	];
+	
+	/*增加自定义dom为使展开或收缩图标移动到最右侧*/
+	function addDiyDom(treeId, treeNode) {
+		var spaceWidth = 20;
+		var switchObj = $("#" + treeNode.tId + "_switch"),
+		icoObj = $("#" + treeNode.tId + "_ico");
+		switchObj.remove();
+		icoObj.before(switchObj);
+
+		if (treeNode.level >= 0) {
+			var spaceStr = "<span style='display: inline-block;width:" + (spaceWidth * treeNode.level)+ "px'></span>";
+			switchObj.before(spaceStr);
+		}
+	}
+	
+	/*zTree点击事件*/
+	function zTreeClick(event, treeId, treeNode){
+		event.stopPropagation();
+		event.preventDefault();
+		$("#page-content").load(treeNode.url); 
+		/* $.ajax({
+			url:treeNode.url,
+			success:function(text){
+				$('#page-content').html(text);
+			}
+		}); */
+	}
+	
+	/*zTree点击前事件,判断是否展开或将page-content内容替换*/
+	function beforeClick(treeId, node) {
+		var curMenus = $("#menuTree a.current");
+		curMenus.removeClass("current");
+		var pNode = node;
+		if (node.level == 0 ) {
+			zTree_Menu.expandNode(node);
+			return false;
+		}
+		if (node.level >= 0) {
+			while (pNode) {
+				pNode = node.getParentNode();
+				if(pNode){
+					var a = $("#" + pNode.tId + "_a");
+					a.addClass("current");
+					curMenu = node.name;
+				}
+				node = pNode;
+			}
+		}
+		return true;
+	}
+	
+	/*所有.icon.search 图标点击后都显示卡口树的dialog*/
+	function addPicKakouQueryEvent(){
+		$('body').on('click','.icon.search',function(){
+			new $.Zebra_Dialog('', {
+			    'source':  {'ajax': 'kakou_tree.html'},
+			    width: 300,
+			    'title': '选择卡口范围',
+			    'buttons':  [
+			                    {caption: '确定选择', callback: function() {
+			                    	getKakouCheckedNodes();			                    	
+			                    }},
+			                    {caption: '取消'}
+			                ] 
+			});
+		})
+	}
+	
+	/*所有查询按钮的事件*/
+	function addQueryBtnEvent(){
+		$('body').on('click','.queryBtn',function(){
+			$.ajax({
+				url:"search_result_body.html",
+				success:function(text){
+					$('.search-result').html(text);
+					$('#custom,#content-container').show();
+					$("#usual,#mini").hide();
+					dynamicDetailRightHeight();
+				}
+			});
+		});
+	}
+	
+	/*动态改变查询结果后侧的查询结果高度*/
+	function dynamicDetailRightHeight(){
+		$('.detail-right').css({
+			"top":$('#query-container').height()+8
+		});
+	}
+	
+	function addTokenImgEvent(){
+		$('body').on('click','.tokenImg',function(){
+			new $.Zebra_Dialog('', {
+			    'source':  {'ajax': 'token_img.html'},
+			    width: 500,
+			    'title': '制定搜索区域',
+			    'buttons':  [
+			                    {caption: '确定选择', callback: function() {
+			                    }},
+			                    {caption: '取消'}
+			                ] 
+			});
+		});
+	}
+	
+
+	$(function(){
+		var treeObj = $("#menuTree");
+		$.fn.zTree.init(treeObj, setting, zNodes);
+		zTree_Menu = $.fn.zTree.getZTreeObj("menuTree");
+		
+		addPicKakouQueryEvent();
+		addQueryBtnEvent();
+		addTokenImgEvent();
+	});
+	
+</script>
+</head>
+<body>
+	<div id="navbar" class="navbar navbar-default">
+		<div id="navbar-container" class="navbar-container">
+			<div class="navbar-header pull-left">
+				<span class="logo"></span>
+			</div>
+			<div class="navbar-header pull-right">
+				<ul class="nav">
+					<li>
+						<a href="#" class="user-flag-a" >
+							<span class="current-user-flag"></span>
+							<span >当前用户：admin</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="login-flag-a" >
+							<span class="login-flag"></span>
+							<span >用户登录</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="logout-flag-a" >
+							<span class="logout-flag"></span>
+							<span >系统退出</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="main-container" class="main-container">
+		<div class="main-container-inner">
+			<div id="sidebar" class="sidebar">
+				<div class="main-menu-container">
+					<span class="main-menu-flag"></span>
+					<span class="main-menu-text">主菜单</span>
+				</div>
+				<ul id="menuTree" class="ztree"></ul>
+			</div>
+			<div class="main-content">
+				<div id="page-content" class="page-content">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">@copyright 2014</div>
+</body>
+</html>

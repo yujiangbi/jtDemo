@@ -1,0 +1,306 @@
+html,body {
+	height: 100%;
+	margin: 0;
+	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+}
+
+.navbar {
+	position: relative;
+	background: #478DE3 none repeat scroll 0 0;
+	height: 54px;
+	border-bottom: 1px solid #2d65af;
+}
+
+.logo {
+	background-image: url("img/logo.png");
+	display: inline-block;
+	height: 55px;
+	width: 175px;
+}
+
+.pull-left {
+	float: left !important;
+}
+
+.pull-right {
+	float: right !important;
+}
+
+.nav {
+	list-style: outside none none;
+	margin-bottom: 0;
+	padding-left: 0;
+	height: 100%;
+	margin: 0 !important;
+}
+
+.nav>li {
+	display: block;
+	float: left !important;
+	height: 54px;
+	line-height: 54px;
+	padding: 0;
+	position: relative;
+}
+
+.nav>li>a {
+	color: #fff;
+	display: block;
+	height: 100%;
+	line-height: inherit;
+	min-width: 50px;
+	position: relative;
+	text-align: center;
+	width: auto;
+	text-decoration: none;
+}
+
+.main-container {
+	padding: 0;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	top: 55px;
+}
+
+.main-container>.main-container-inner {
+	position: relative;
+	height: 100%;
+}
+
+.sidebar {
+	background-color: #f2f2f2;
+	border-color: #9ea5b2;
+	border-image: none;
+	border-style: solid;
+	border-width: 0 1px 0 0;
+	float: left;
+	position: relative;
+	width: 204px;
+	/* height: 100%; */
+}
+
+.sidebar::before {
+	background-color: #eef1f7;
+	border-color: #9ea5b2;
+	border-image: none;
+	border-style: solid;
+	border-width: 0 1px 0 0;
+	bottom: 0;
+	content: "";
+	display: block;
+	position: fixed;
+	top: 0;
+	width: 204px;
+	z-index: -1;
+}
+
+.main-menu-container {
+	height: 44px;
+	border-bottom: 1px solid #cccccc;
+	background-color: white;
+}
+
+.main-menu-flag {
+	background-image: url("img/main-menu.png");
+	height: 44px;
+	width: 16px;
+	display: inline-block;
+	margin-left: 30px;
+}
+
+.main-menu-text {
+	color: #333a44;
+	display: inline-block;
+	font-size: 18px;
+	font-weight: bold;
+	height: 44px !important;
+	line-height: 7px !important;
+	vertical-align: middle;
+	margin-left: 19px;
+}
+
+.main-content {
+	background-color: #e1e5f0;
+	padding: 8px 8px 8px 8px;
+	bottom: 24px;
+	left: 205px;
+	padding: 6px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.page-content {
+	border: 1px solid #b2b8c3;
+	display: block;
+	position: absolute;
+	height: auto;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 8px;
+	padding: 8px;
+	background-color: white;
+}
+
+.user-flag-a {
+	padding-right: 56px;
+}
+
+.logout-flag-a {
+	padding-right: 35px;
+}
+
+.login-flag-a {
+	padding-right: 35px;
+}
+
+.logout-flag {
+	width: 16px;
+	height: 55px;
+	display: inline-block;
+	background: url("img/logout.png");
+	vertical-align: middle;
+}
+
+.current-user-flag {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.login-flag {
+	width: 16px;
+	height: 55px;
+	display: inline-block;
+	background: url("img/user.png");
+	vertical-align: middle;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0px;
+	height: 24px;
+	width: 100%;
+	background-color: #2b3a5b;
+	text-align: center;
+	color: white;
+}
+
+ #menuTree.ztree {
+	padding: 0px;
+}
+
+#menuTree.ztree * {
+	font-size: 10pt;
+	font-family: "Microsoft Yahei", Verdana, Simsun, "Segoe UI Web Light",
+		"Segoe UI Light", "Segoe UI Web Regular", "Segoe UI",
+		"Segoe UI Symbol", "Helvetica Neue", Arial
+}
+
+#menuTree.ztree li ul {
+	margin: 0;
+	padding: 0
+}
+
+#menuTree.ztree li {
+	line-height: 40px;
+}
+#menuTree.ztree li a:hover {text-decoration:none; background-color: #E7E7E7;}
+#menuTree.ztree li a.curSelectedNode {
+	border: 0;
+	background-color: #55ADFF;
+	height: 44px;
+}
+
+#menuTree.ztree li span {
+	margin-left: 25px;
+	line-height: 44px;
+	font-size: 16px;
+}
+
+#menuTree.ztree li span.button.ico_docu {
+	visibility: hidden;
+}
+
+#menuTree.ztree li a.level0 span.button.switch {
+	position: absolute;
+	right: 12px;
+}
+
+#menuTree.ztree li span.button.noline_open {
+	background-image: url("img/down.png");
+	background-position: center;
+	position: absolute;
+    right: 12px;
+    z-index: 11;
+    display: inline-block;
+}
+
+#menuTree.ztree li span.button.noline_close {
+	background-image: url("img/up.png");
+	background-position: center;
+	position: absolute;
+    right: 12px;
+    z-index: 11;
+    display: inline-block;
+}
+
+#menuTree.ztree li a.level0 span {
+	font-weight: bold;
+	margin-left: 20px;
+	padding: 0px;
+}
+
+#menuTree.ztree li a.level0 span.button {
+	font-weight: bold;
+	margin-left: 30px;
+	padding: 0px;
+}
+
+#menuTree.ztree li {
+	white-space: normal;
+}
+
+#menuTree.ztree li a:hover {
+	text-decoration: none
+}
+
+#menuTree.ztree li a.level0 {
+	background-color: white;
+	border-bottom: 1px solid #cccccc;
+}
+
+#menuTree.ztree li a {
+	width: 204px;
+	height: 44px;
+	padding-top: 0px;
+	padding-right: 0px;
+	position: relative;
+}
+
+#menuTree.ztree li a.current {
+	
+}
+
+#menuTree.ztree li a.current:after {
+	background-color: #55adff;
+	content: "";
+	display: inline-block;
+	height: 45px;
+	position: absolute;
+	width: 4px;
+	right: 0px;
+}
+
+#menuTree.ztree li span.button {
+	width: 16px;
+	height: 44px;
+}
+
+#menuTree.ztree span.button.switch{
+	display: none;
+}
