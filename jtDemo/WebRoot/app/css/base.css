@@ -1,9 +1,35 @@
+/*自定义的通用css*/
+
 .hide{
 	display: none;	
 }
+
+.clear {
+	clear: both;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
 body a{outline:none;blr:expression(this.onFocus=this.blur());}
 
+body {
+		margin: 0;
+		padding: 0;
+		font-size: 14px;
+}
+html, body, * {     font-family: "Microsoft YaHei" ! important; }
 
+img{
+	border: 0;
+}
+
+/*=========select input button 样式==========*/
 select{
 	border:none;
     height: 29px;
@@ -108,19 +134,19 @@ input:focus + .search,input + .search:hover{
     left: 4px;
 }
 .icon-upload {
-    background: rgba(0, 0, 0, 0) url("img/icon-upload.png") no-repeat scroll center center;
+    background: url("img/icon-upload.png") no-repeat scroll center center;
 }
 
 .icon-area {
-    background: rgba(0, 0, 0, 0) url("img/icon-area.png") no-repeat scroll center center;
+    background: url("img/icon-area.png") no-repeat scroll center center;
 }
 
 .icon-export{
-	background: rgba(0, 0, 0, 0) url("img/icon-export.png") no-repeat scroll center center;
+	background: url("img/icon-export.png") no-repeat scroll center center;
 }
 
 .icon-search{
-	background: rgba(0, 0, 0, 0) url("img/search.png") no-repeat scroll center center;
+	background:  url("img/icon-search.png") no-repeat scroll center center;
 }
 
 .btn-icon {
@@ -174,3 +200,4 @@ input:focus + .search,input + .search:hover{
     top: 1px;
     width: 12px;
 }
+/*=========select input 样式==========*/

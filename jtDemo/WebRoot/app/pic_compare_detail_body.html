@@ -14,10 +14,8 @@
 	
 	.pcd-container-right{
 		width: 42%;
-	}
-	
-	.pcd-container-right{
 		margin-left: 12px;
+		height: 100%;
 	}
 	
 	.pcd-info{
@@ -33,6 +31,23 @@
 		width: 120px;
 	}
 	
+	.img-container{
+		background-color: #C8D4DF;
+		border: 1px solid #b2b8c3;
+		margin-bottom: 12px;
+		vertical-align:middle;
+	}
+	
+	.img-container > span{
+	    height:100%;
+	    display:inline-block;
+	    vertical-align: middle;
+	}
+	
+	.img-container img{
+	    vertical-align: middle;
+	}
+	
 </style>
 </head>
 <body>
@@ -40,12 +55,15 @@
 		<img alt="" src="css/img/tmp/default.png">
 	</div>
 	<div class="pcd-container-right fl">
-		<img alt="" src="css/img/tmp/default.png">
+		<div class="img-container">
+			<span></span><img alt="" src="css/img/tmp/default.png">
+		</div>
 		<div class="pcd-info">
 			<table>
 				<tr>
 					<td colspan="6" id="btn-td">
 						<a  class="button green-skin"> 
+						
 							<span class="btn-icon-right"> <span class="btn-text">查看原图</span>
 							</span>
 						</a>
@@ -65,8 +83,9 @@
 				</tr>
 			</table>
 		</div>
-		
-		
 	</div>
+	<script type="text/javascript">
+		$('.img-container').height($('.pcd-container-right').height() - $('.pcd-info').height()-34 );
+	</script>
 </body>
 </html>

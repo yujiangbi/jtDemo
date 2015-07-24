@@ -4,17 +4,21 @@
 <meta charset="UTF-8">
 <title>博雅华录</title>
 <link rel="stylesheet" href="../plugin/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
-<script type="text/javascript" src="../plugin/jquery-1.4.4.min.js"></script>
-<script type="text/javascript" src="../plugin/zTree/js/jquery.ztree.core-3.5.js"></script>
-<script type="text/javascript" src="../plugin/idTabs/js/jquery.idTabs.min.js"></script>
-<script type="text/javascript" src="../plugin/smartpaginator/smartpaginator.js"></script>
 <link rel="stylesheet" href="../plugin/idTabs/css/jquery.idTabs.css" type="text/css">
 <link rel="stylesheet" href="../plugin/smartpaginator/smartpaginator.css" type="text/css">
-<script type="text/javascript" src="../plugin/dialog/zebra_dialog.js"></script>
 <link rel="stylesheet" href="../plugin/dialog/zebra_dialog.css" type="text/css">
+<link href='../plugin/fullcalendar/fullcalendar.min.css' rel='stylesheet' />
 <link rel="stylesheet" href="css/base.css" type="text/css">
 <link rel="stylesheet" href="css/main.css" type="text/css">
 <link rel="stylesheet" href="css/biz.css" type="text/css">
+<script type="text/javascript" src="../plugin/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../plugin/dialog/zebra_dialog.src.js"></script>
+<script type="text/javascript" src="../plugin/zTree/js/jquery.ztree.core-3.5.min.js"></script>
+<script type="text/javascript" src="../plugin/idTabs/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="../plugin/smartpaginator/smartpaginator.js"></script>
+<script src='../plugin/fullcalendar/lib/moment.min.js'></script>
+<script type="text/javascript" src='../plugin/fullcalendar/fullcalendar.min.js'></script>
+<script type="text/javascript" src='../plugin/fullcalendar/lang-all.js'></script>
 <script type="text/javascript">
 	var curMenu = null, zTree_Menu = null;
 	
@@ -65,12 +69,6 @@
 		event.stopPropagation();
 		event.preventDefault();
 		$("#page-content").load(treeNode.url); 
-		/* $.ajax({
-			url:treeNode.url,
-			success:function(text){
-				$('#page-content').html(text);
-			}
-		}); */
 	}
 	
 	/*zTree点击前事件,判断是否展开或将page-content内容替换*/
@@ -100,7 +98,7 @@
 	function addPicKakouQueryEvent(){
 		$('body').on('click','.icon.search',function(){
 			new $.Zebra_Dialog('', {
-			    'source':  {'ajax': 'kakou_tree.html'},
+			    'source':  {'load': 'kakou_tree.html'},
 			    width: 300,
 			    'title': '选择卡口范围',
 			    'buttons':  [
@@ -116,14 +114,10 @@
 	/*所有查询按钮的事件*/
 	function addQueryBtnEvent(){
 		$('body').on('click','.queryBtn',function(){
-			$.ajax({
-				url:"search_result_body.html",
-				success:function(text){
-					$('.search-result').html(text);
-					$('#custom,#content-container').show();
-					$("#usual,#mini").hide();
-					dynamicDetailRightHeight();
-				}
+			$(".search-result").load("search_result_body.html", function() {
+				$('#custom,#content-container').show();
+				$("#usual,#mini").hide();
+				dynamicDetailRightHeight();
 			});
 		});
 	}
@@ -138,7 +132,7 @@
 	function addTokenImgEvent(){
 		$('body').on('click','.tokenImg',function(){
 			new $.Zebra_Dialog('', {
-			    'source':  {'ajax': 'token_img.html'},
+			    'source':  {'load': 'token_img.html'},
 			    width: 500,
 			    'title': '制定搜索区域',
 			    'buttons':  [
@@ -150,17 +144,14 @@
 		});
 	}
 	
-
 	$(function(){
 		var treeObj = $("#menuTree");
 		$.fn.zTree.init(treeObj, setting, zNodes);
 		zTree_Menu = $.fn.zTree.getZTreeObj("menuTree");
-		
 		addPicKakouQueryEvent();
 		addQueryBtnEvent();
 		addTokenImgEvent();
-	});
-	
+	})
 </script>
 </head>
 <body>
@@ -209,5 +200,13 @@
 		</div>
 	</div>
 	<div class="footer">@copyright 2014</div>
+	<script type="text/javascript">
+		var treeObj = $("#menuTree");
+		$.fn.zTree.init(treeObj, setting, zNodes);
+		zTree_Menu = $.fn.zTree.getZTreeObj("menuTree");
+		addPicKakouQueryEvent();
+		addQueryBtnEvent();
+		addTokenImgEvent();
+	</script>
 </body>
 </html>

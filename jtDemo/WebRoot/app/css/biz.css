@@ -1,21 +1,10 @@
-.separator-table td img {
-	vertical-align: top;
-}
+/*修改第三方框架的css && 零散的样式css*/
 
-.large{
-	width: 592px !important;
-}
 
-.fl {
-	float: left;
-}
-
-.fr {
-	float: right;
-}
-
+/*上传对比图片*/
 .show-img {
 	display: inline-block;
+	margin-left: 15px;
 }
 
 .show-img div {
@@ -29,6 +18,7 @@
 	margin-bottom: 8px;
 }
 
+/*绿色按钮皮肤*/
 .green-skin{
 	background-color: #5ead5e !important;
 	border-color: #3c883c;
@@ -40,11 +30,7 @@
 	background-color: #3c883c !important;
 }
 
-
-.clear {
-	clear: both;
-}
-
+/*=========查询条件显示隐藏开关==========*/
 .expand-container {
 	height: 32px;
 	border: 1px solid #A2ABBD;
@@ -60,6 +46,26 @@
     vertical-align: top;
 }
 
+#custom td.td-content{
+	padding-right: 25px;
+}
+
+.expand-container .head.expand {
+    background: #42d4be url("img/query-switch.png") no-repeat scroll center;
+    border-right: 1px solid #3b9b8a;
+    height: 32px;
+    width: 37px;
+    cursor: pointer;
+}
+
+#custom.expand-container .head.expand {
+	height: 49px;
+} 
+
+/*=========查询条件显示隐藏开关==========*/
+
+
+/*=========查询条件表格样式==========*/
 td.td-content{
 	padding-right: 10px;
 }
@@ -68,19 +74,27 @@ td.td-head{
 	text-align: right;
 }
 
-
-#custom td.td-content{
-	padding-right: 25px;
+.separator-table{
+	float: left;
+	display: inline-block;
+	vertical-align: top;
 }
 
-.expand-container .head.expand {
-    background: #42d4be url("img/query-switch.png") no-repeat scroll center;
-    border-right: 1px solid #3b9b8a;
-    height: 100%;
-    width: 37px;
-    cursor: pointer;
+/*查询条件table*/
+.separator-table td img {
+	vertical-align: top;
 }
 
+/*卡口范围input*/
+.large{
+	width: 574px !important;
+}
+
+/*=========查询条件表格样式==========*/
+
+
+
+/*=========查询结果样式==========*/
 .detail-right {
 	border: 1px solid #81a4e6;
 	left: 0;
@@ -140,9 +154,6 @@ td.td-head{
 	display: block;
 }
 
-.plugin-item .foot div {
-	
-}
 
 .detail-left {
 	width: 200px;
@@ -158,10 +169,6 @@ td.td-head{
     margin-bottom: 12px;
 }
 
-.separator-table {
-	display: inline-block;
-	vertical-align: top;
-}
 
 .time-query-container {
 	position: relative;
@@ -261,6 +268,9 @@ td.td-head{
 	right: 12px;
 }
 
+/*=========查询结果样式==========*/
+
+/*弹出框样式*/
 .ZebraDialog .ZebraDialog_Title{
 	border-radius:0px;
 	background-color: #0072D2;
@@ -316,3 +326,4 @@ td.td-head{
 .dialog{
 	border: 1px solid #B1C3D1;
 }
+/*弹出框样式*/

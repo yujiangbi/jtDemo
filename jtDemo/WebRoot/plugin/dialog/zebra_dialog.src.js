@@ -458,7 +458,7 @@
                 for (var type in plugin.settings.source) {
 
                     switch (type) {
-
+                    
                         // if we have to fetch content using an AJAX call
                         case 'ajax':
 
@@ -487,7 +487,25 @@
                             $.ajax(ajax_options);
 
                             break;
+                        case 'load':
+                        		
+                        	debugger;
+                            preloader = $('<div>').attr('class', 'ZebraDialog_Preloader').appendTo(canvas);
 
+                            // handle the "success" event
+                            var loadCallBack = function(result) {
+
+                                // remove the preloader
+                                preloader.remove();
+
+                                // reposition the dialog box
+                                draw(false);
+                            };
+
+                            // make the AJAX call
+                            canvas.load(plugin.settings.source[type],loadCallBack);
+
+                            break;
                         // if we have to show an iFrame
                         case 'iframe':
 

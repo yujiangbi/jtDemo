@@ -4,25 +4,23 @@
 <meta charset="UTF-8">
 <title>图片详情</title>
 <script type="text/javascript" src="../plugin/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../plugin/dialog/zebra_dialog.src.js"></script>
+<script type="text/javascript" src="../plugin/zTree/js/jquery.ztree.core-3.5.min.js"></script>
+<script type="text/javascript" src="../plugin/idTabs/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="../plugin/smartpaginator/smartpaginator.js"></script>
+<script type="text/javascript" src='../plugin/fullcalendar/fullcalendar.min.js'></script>
+<script type="text/javascript" src='../plugin/fullcalendar/lang-all.js'></script>
 </head>
 <body>
 	<script type="text/javascript">
 	
-		$.ajax({
-			url:'index.html',
-			success:function(text){
-				$('body').html(text);
-				initDetail();
-			}
+		
+		$("body").load("index.html", function() {
+			initDetail();
 		});
 		
 		function initDetail(){
-			$.ajax({
-				url:'info_search_detail_body.html',
-				success:function(text){
-					$('#page-content').html(text);
-				}
-			});
+			$("#page-content").load("info_search_detail_body.html");
 		}
 	</script>
 </body>

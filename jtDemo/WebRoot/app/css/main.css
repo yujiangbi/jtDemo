@@ -1,9 +1,11 @@
+/*首页index.hmtl用到的css*/
+
 html,body {
 	height: 100%;
 	margin: 0;
-	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
 }
 
+/*导航栏*/
 .navbar {
 	position: relative;
 	background: #478DE3 none repeat scroll 0 0;
@@ -11,6 +13,7 @@ html,body {
 	border-bottom: 1px solid #2d65af;
 }
 
+/*logo*/
 .logo {
 	background-image: url("img/logo.png");
 	display: inline-block;
@@ -18,14 +21,17 @@ html,body {
 	width: 175px;
 }
 
+/*左侧浮动*/
 .pull-left {
 	float: left !important;
 }
 
+/*右侧浮动*/
 .pull-right {
 	float: right !important;
 }
 
+/*导航 对应右侧的当前用户、登陆等*/
 .nav {
 	list-style: outside none none;
 	margin-bottom: 0;
@@ -34,6 +40,7 @@ html,body {
 	margin: 0 !important;
 }
 
+/*导航 对应右侧的当前用户、登陆等其中一项*/
 .nav>li {
 	display: block;
 	float: left !important;
@@ -43,6 +50,7 @@ html,body {
 	position: relative;
 }
 
+/*导航 对应右侧的当前用户、登陆等其中一项*/
 .nav>li>a {
 	color: #fff;
 	display: block;
@@ -55,6 +63,7 @@ html,body {
 	text-decoration: none;
 }
 
+/*页面主容器*/
 .main-container {
 	padding: 0;
 	position: absolute;
@@ -63,11 +72,12 @@ html,body {
 	top: 55px;
 }
 
+/*页面主容器*/
 .main-container>.main-container-inner {
-	position: relative;
 	height: 100%;
 }
 
+/*左侧菜单bar*/
 .sidebar {
 	background-color: #f2f2f2;
 	border-color: #9ea5b2;
@@ -77,7 +87,7 @@ html,body {
 	float: left;
 	position: relative;
 	width: 204px;
-	/* height: 100%; */
+	height: 100%;
 }
 
 .sidebar::before {
@@ -95,12 +105,13 @@ html,body {
 	z-index: -1;
 }
 
+/*左侧菜单容器*/
 .main-menu-container {
 	height: 44px;
 	border-bottom: 1px solid #cccccc;
 	background-color: white;
 }
-
+/*主菜单标识样式*/
 .main-menu-flag {
 	background-image: url("img/main-menu.png");
 	height: 44px;
@@ -109,6 +120,7 @@ html,body {
 	margin-left: 30px;
 }
 
+/*主菜单样式*/
 .main-menu-text {
 	color: #333a44;
 	display: inline-block;
@@ -120,6 +132,7 @@ html,body {
 	margin-left: 19px;
 }
 
+/*后侧内容区域*/
 .main-content {
 	background-color: #e1e5f0;
 	padding: 8px 8px 8px 8px;
@@ -131,6 +144,7 @@ html,body {
 	top: 0;
 }
 
+/*后侧内容区域*/
 .page-content {
 	border: 1px solid #b2b8c3;
 	display: block;
@@ -145,6 +159,7 @@ html,body {
 	background-color: white;
 }
 
+/*=========导航后侧用户标识==========*/
 .user-flag-a {
 	padding-right: 56px;
 }
@@ -179,7 +194,9 @@ html,body {
 	background: url("img/user.png");
 	vertical-align: middle;
 }
+/*=========导航后侧用户标识==========*/
 
+/*低部*/
 .footer {
 	position: fixed;
 	bottom: 0px;
@@ -190,15 +207,13 @@ html,body {
 	color: white;
 }
 
- #menuTree.ztree {
+/*=========菜单树==========*/
+#menuTree.ztree {
 	padding: 0px;
 }
 
 #menuTree.ztree * {
 	font-size: 10pt;
-	font-family: "Microsoft Yahei", Verdana, Simsun, "Segoe UI Web Light",
-		"Segoe UI Light", "Segoe UI Web Regular", "Segoe UI",
-		"Segoe UI Symbol", "Helvetica Neue", Arial
 }
 
 #menuTree.ztree li ul {
@@ -304,3 +319,4 @@ html,body {
 #menuTree.ztree span.button.switch{
 	display: none;
 }
+/*=========菜单树==========*/

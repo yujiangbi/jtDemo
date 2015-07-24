@@ -3,10 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>历史记录查询</title>
-<link href='../plugin/fullcalendar/fullcalendar.min.css' rel='stylesheet' />
-<script src='../plugin/fullcalendar/lib/moment.min.js'></script>
-<script src='../plugin/fullcalendar/fullcalendar.min.js'></script>
-<script src='../plugin/fullcalendar/lang-all.js'></script>
 <style type="text/css">
 	.fc-ltr .fc-basic-view .fc-day-number{
 		text-align: left;
@@ -30,27 +26,8 @@
 		font-size:16px;
 		text-align: center;
 	}
-	
-</style>
-<script>
-	$(document).ready(function() {
-		
-		
-	});
-
-</script>
-<style>
-
-	body {
-		margin: 0;
-		padding: 0;
-		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-		font-size: 14px;
-	}
-
 
 	#calendar {
-		max-width: 900px;
 		max-height: 100%;
 	}
 	
@@ -140,8 +117,8 @@
 	</div>
 	<script type="text/javascript">
 		renderCalendar();
-		var calendarHeight = $('#calendar').parent().height();
-		var calendarWidth = $('#calendar').parent().width()
+		var calendarHeight = $('#page-content').height();
+		var calendarWidth = $('#page-content').width()
 		$('#calendar').fullCalendar('option', 'height', calendarHeight-4);
 		$('#calendar').width(calendarWidth-270);
 		addBlockLinkEvent();
@@ -151,6 +128,8 @@
 				window.open("search_result.html");
 			});
 		} 
+		
+		/*时间日期格式化*/
 		function dataFormatter (dateObject) {
 			   var d = new Date(dateObject);
 			   var day = d.getDate();
@@ -165,8 +144,9 @@
 			   var date = year + "-" + month + "-" + day;
 	
 			   return date;
-			};
+		};
 			
+		/*渲染日历组件 日历自己按使用fullCalendar框架*/
 		function renderCalendar() {
 			$('#calendar').fullCalendar({
 				header: {
@@ -206,44 +186,9 @@
 			                callback(events);
 			            },
 			            error:function() {
-			                alert('sdf')
 			            }
 			        })
 			    }
-				/*events:'data.json'
-				  events: [
-					{
-						title: '9987条记录',
-						start: '2015-02-01',
-						type: '1'
-					},
-					{
-						title: '9987条记录',
-						start: '2015-02-10',
-						type: '1'
-					},
-					{
-						title: '9987条记录',
-						start: '2015-02-11',
-						type: '1'
-					},
-					{
-						title: '9987条记录',
-						start: '2015-02-12',
-						type: '1'
-					},
-					{
-						title: '9987条记录',
-						start: '2015-02-13',
-						type: '1'
-					},
-					{
-						title: '997条记录',
-						start: '2015-02-16',
-						type: '2'
-					}
-					
-				] */
 			});
 		}
 	</script>

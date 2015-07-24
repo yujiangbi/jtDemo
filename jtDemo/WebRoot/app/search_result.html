@@ -4,27 +4,25 @@
 <meta charset="UTF-8">
 <title>查询结果列表</title>
 <script type="text/javascript" src="../plugin/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../plugin/dialog/zebra_dialog.src.js"></script>
+<script type="text/javascript" src="../plugin/zTree/js/jquery.ztree.core-3.5.min.js"></script>
+<script type="text/javascript" src="../plugin/idTabs/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="../plugin/smartpaginator/smartpaginator.js"></script>
+<script type="text/javascript" src='../plugin/fullcalendar/fullcalendar.min.js'></script>
+<script type="text/javascript" src='../plugin/fullcalendar/lang-all.js'></script>
 </head>
 <body>
 	<script type="text/javascript">
-		$.ajax({
-			url:'index.html',
-			success:function(text){
-				$('body').html(text);
-				initSearchResult();
-			}
+		$("body").load("index.html", function() {
+			initSearchResult();
 		});
 		
 		function initSearchResult(){
-			$.ajax({
-				url:'search_result_body.html',
-				success:function(text){
-					$('#page-content').html(text);
-					$('#content-container').removeClass("hide");
-					$('.detail-right').css({
-						"top":0
-					});
-				}
+			$("#page-content").load("search_result_body.html",function(){
+				$('#content-container').removeClass("hide");
+				$('.detail-right').css({
+					"top":0
+				});
 			});
 		}
 	</script>
