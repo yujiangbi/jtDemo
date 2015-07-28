@@ -8,17 +8,22 @@
 <link rel="stylesheet" href="../plugin/smartpaginator/smartpaginator.css" type="text/css">
 <link rel="stylesheet" href="../plugin/dialog/zebra_dialog.css" type="text/css">
 <link href='../plugin/fullcalendar/fullcalendar.min.css' rel='stylesheet' />
+<link href='../plugin/datetimepicker/jquery.datetimepicker.css' rel='stylesheet' />
+<link href='../plugin/datetimepicker/jquery.yearmonth.css' rel='stylesheet' />
 <link rel="stylesheet" href="css/base.css" type="text/css">
 <link rel="stylesheet" href="css/main.css" type="text/css">
 <link rel="stylesheet" href="css/biz.css" type="text/css">
 <script type="text/javascript" src="../plugin/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="../plugin/dialog/zebra_dialog.src.js"></script>
 <script type="text/javascript" src="../plugin/zTree/js/jquery.ztree.core-3.5.min.js"></script>
+<script type="text/javascript" src="../plugin/zTree/js/jquery.ztree.excheck-3.5.js"></script>
 <script type="text/javascript" src="../plugin/idTabs/js/jquery.idTabs.min.js"></script>
 <script type="text/javascript" src="../plugin/smartpaginator/smartpaginator.js"></script>
 <script src='../plugin/fullcalendar/lib/moment.min.js'></script>
 <script type="text/javascript" src='../plugin/fullcalendar/fullcalendar.min.js'></script>
 <script type="text/javascript" src='../plugin/fullcalendar/lang-all.js'></script>
+<script type="text/javascript" src='../plugin/datetimepicker/jquery.datetimepicker.js'></script>
+<script type="text/javascript" src='../plugin/datetimepicker/jquery.yearmonth.js'></script>
 <script type="text/javascript">
 	var curMenu = null, zTree_Menu = null;
 	
@@ -96,7 +101,7 @@
 	
 	/*所有.icon.search 图标点击后都显示卡口树的dialog*/
 	function addPicKakouQueryEvent(){
-		$('body').on('click','.icon.search',function(){
+		$('body').on('click','.icon.search',function(event){
 			new $.Zebra_Dialog('', {
 			    'source':  {'load': 'kakou_tree.html'},
 			    width: 300,
@@ -144,13 +149,42 @@
 		});
 	}
 	
+	function addDateTimeEvent(){
+		$('body').on('click','.icon.time',function(){
+			$(this).prev('input').datetimepicker({
+				datepicker:false,
+				format:'H:i',
+				step:5
+			});
+			$(this).prev('input').datetimepicker('show');
+		});
+	}
+	
+	function addDateEvent(){
+		$('body').on('click','.icon.date',function(){
+			$(this).prev('input').datetimepicker({
+				lang:'ch',
+				timepicker:false,
+				format:'d/m/Y',
+				formatDate:'Y/m/d'
+			});
+			$(this).prev('input').datetimepicker('show');
+		});
+	}
+	
 	$(function(){
 		var treeObj = $("#menuTree");
 		$.fn.zTree.init(treeObj, setting, zNodes);
 		zTree_Menu = $.fn.zTree.getZTreeObj("menuTree");
+		$("body").unbind('click');
 		addPicKakouQueryEvent();
 		addQueryBtnEvent();
 		addTokenImgEvent();
+		addDateTimeEvent();
+		addDateEvent();
+		$(window).resize(function(){
+			resizeEvent();
+		});
 	})
 </script>
 </head>

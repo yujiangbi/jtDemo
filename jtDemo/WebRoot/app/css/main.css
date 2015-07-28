@@ -11,6 +11,7 @@ html,body {
 	background: #478DE3 none repeat scroll 0 0;
 	height: 54px;
 	border-bottom: 1px solid #2d65af;
+	min-width: 1300px;
 }
 
 /*logo*/
@@ -70,6 +71,7 @@ html,body {
 	bottom: 0px;
 	width: 100%;
 	top: 55px;
+	min-width: 1300px;
 }
 
 /*页面主容器*/

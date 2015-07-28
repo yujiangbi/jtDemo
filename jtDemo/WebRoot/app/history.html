@@ -73,7 +73,53 @@
 		top: 0px;
 		background-image: url("css/img/history-switch.png");
 	}
-
+	
+	.fc-toolbar .fc-left{
+		margin-left: 30%;
+	}
+	
+	.fc-toolbar .fc-right{
+		margin-right: 30%;
+	}
+	
+	.fc button {
+	    padding: 4px 25px;
+	}
+	.fc-unthemed .fc-today{
+	   background-color: #FF5C58;
+	}
+	
+	.select{
+	    width: 0;
+	    height: 0;
+	    border-left: 8px solid transparent;
+	    border-right: 8px solid transparent;
+	    border-top: 8px solid #989EAF;
+	    margin-top: 10px;
+	    cursor: pointer;
+	}
+	
+	.select:hover{
+	    width: 0;
+	    height: 0;
+	    border-left: 8px solid transparent;
+	    border-right: 8px solid transparent;
+	    border-top: 8px solid #55adff;
+	    margin-top: 10px;
+	}
+	
+	.dayDiv{
+		border: 1px solid none;
+	}
+	
+	.dayDiv.active{
+		border: 1px solid red;
+	}
+	
+	.fc-day{
+		cursor: pointer;
+	}
+	
 </style>
 <body>
 	<div id='calendar' class="fl"></div>
@@ -117,11 +163,15 @@
 	</div>
 	<script type="text/javascript">
 		renderCalendar();
-		var calendarHeight = $('#page-content').height();
-		var calendarWidth = $('#page-content').width()
-		$('#calendar').fullCalendar('option', 'height', calendarHeight-4);
-		$('#calendar').width(calendarWidth-270);
+		resizeEvent();
 		addBlockLinkEvent();
+		
+		function resizeEvent(){
+			var calendarHeight = $('#page-content').height();
+			var calendarWidth = $('#page-content').width()
+			$('#calendar').fullCalendar('option', 'height', calendarHeight-4);
+			$('#calendar').width(calendarWidth-270);
+		}
 		
 		function addBlockLinkEvent(){
 			$('.block').click(function(){
@@ -154,30 +204,60 @@
 					center: 'title',
 					right: 'next'
 				},
-				defaultDate: '2015-02-12',
 				lang: 'zh-cn',
 				buttonIcons: false, 
 				weekNumbers: false,
 				editable: false,
 				eventLimit: false,
 				backgroundColor : 'yellow',
-				dayClick: function(date, allDay, jsEvent, view) {
-					alert(dataFormatter(date));
+				dayClick: function(date, allDay,view) {
+					var dateString = dataFormatter(date);
+					view.el.find('.fc-day').removeClass('active');
+					view.el.find('.fc-day[data-date="' + dateString + '"] > .dayDiv').addClass('active');
+					alert(dateString);
 				},
 				eventClick:function(event, element,view){
-					alert(dataFormatter(event.start));
+					var dateString = dataFormatter(event.start);
+					view.el.find('.fc-day[data-date="' + dateString + '"] > .dayDiv').addClass('active');
+					alert(dateString);
 				},
 				eventRender: function(event, element,view) {
 					$(element).addClass("event");
 					var dateString = dataFormatter(event.start);
-					if(event.type == '1'){
-	     			view.el.find('.fc-day-number[data-date="' + dateString + '"]').css('background-color', '#3bd6be');
+					var dayElement = view.el.find('.fc-day-number[data-date="' + dateString + '"]');
+					if(!dayElement.hasClass('fc-today')){
+	     				view.el.find('.fc-day-number[data-date="' + dateString + '"]').css('background-color', '#3bd6be');
 					}else{
-						view.el.find('.fc-day[data-date="' + dateString + '"]').css('background-color', '#FF5C58');
 						$(element).addClass("white-color");
 					}
 				},
+				eventAfterAllRender:function(){
+					if(!$('.fc-center').find(".select")[0]){
+						var $select = $('<div/>').addClass("select");
+						$('.fc-center').append($select);
+						$select.click(function(){
+							$(this).datetimepicker({
+								lang:'ch',
+								timepicker:false,
+								mouthpicker:true,
+								inverseButton:true,
+								todayButton: true,
+								prevButton: false,
+								nextButton: false,
+								format:'Y-m',
+								onChangeMonth:function(){
+									var date = $select.data('xdsoft_datetimepicker').data('xdsoft_datetime');
+									$('#calendar').fullCalendar( 'gotoDate', $.fullCalendar.moment(date.str()));
+								}
+							});
+							$(this).datetimepicker('show');
+						});
+					}
+					var height = $('.fc-day').height();
+					$('.fc-day').append($('<div/>').addClass("dayDiv").height(height));
+				},
 				events:function(start, end, timezone, callback) {
+					/*实际情况根据start和end走后端ajax*/
 			        $.ajax({
 			            url:"data.json",
 			            dataType: "json", 

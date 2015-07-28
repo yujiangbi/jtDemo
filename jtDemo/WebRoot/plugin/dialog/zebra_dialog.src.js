@@ -488,8 +488,6 @@
 
                             break;
                         case 'load':
-                        		
-                        	debugger;
                             preloader = $('<div>').attr('class', 'ZebraDialog_Preloader').appendTo(canvas);
 
                             // handle the "success" event

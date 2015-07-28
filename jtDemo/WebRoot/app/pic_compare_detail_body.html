@@ -85,7 +85,10 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		$('.img-container').height($('.pcd-container-right').height() - $('.pcd-info').height()-34 );
+		resizeEvent();	
+		function resizeEvent(){
+			$('.img-container').height($('.pcd-container-right').height() - $('.pcd-info').height()-34 );
+		}
 	</script>
 </body>
 </html>
