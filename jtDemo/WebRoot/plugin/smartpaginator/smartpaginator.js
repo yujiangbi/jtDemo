@@ -67,7 +67,7 @@
                                              .append($('<span/>').text('of'))
                                              .append($('<span/>').append($('<b/>').text(settings.totalrecords)));*/
                     container.find(".label").append($('<span/>').text("第" + (pageIndex + 1) + "页"))
-	                    .append($('<span/>').text("共" + settings.totalrecords + "页"));
+	                    .append($('<span/>').text("共" + totalpages + "页"));
                 }
                 function buildNavigation(startPage) {
                     list.find('li').remove();
@@ -83,7 +83,7 @@
                                         navigate(currentPage);
                                     }));
                     }
-                    //showLabels(startPage);
+                    showLabels(startPage);
                     inputPage.val((startPage + 1));
                     list.find('li a').addClass(settings.theme).removeClass('active');
                     list.find('li:eq(0) a').addClass(settings.theme).addClass('active');

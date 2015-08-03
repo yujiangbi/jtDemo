@@ -201,3 +201,14 @@ input:focus + .search,input + .search:hover{
     width: 12px;
 }
 /*=========select input 样式==========*/
+
+.loading{
+	background: url("img/loading.GIF");
+    display: block;
+    height: 64px;
+    left: 50%;
+    margin-left: -100px;
+    margin-top:30px;
+    position: absolute;
+    width: 64px;
+}

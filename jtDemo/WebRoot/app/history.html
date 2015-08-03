@@ -109,15 +109,24 @@
 	}
 	
 	.dayDiv{
-		border: 1px solid none;
+		bottom: 4px;
+	    height: 30px;
+	    position: absolute;
+	    right: 4px;
+	    width: 30px;
 	}
 	
 	.dayDiv.active{
-		border: 1px solid red;
+		background: url("css/img/history-select.png");
+	}
+	
+	.fc-today > .dayDiv.active{
+		background: url("css/img/history-current-select.png")!important;
 	}
 	
 	.fc-day{
 		cursor: pointer;
+		position: relative;
 	}
 	
 </style>
@@ -212,12 +221,13 @@
 				backgroundColor : 'yellow',
 				dayClick: function(date, allDay,view) {
 					var dateString = dataFormatter(date);
-					view.el.find('.fc-day').removeClass('active');
+					view.el.find('.fc-day > .dayDiv').removeClass('active');
 					view.el.find('.fc-day[data-date="' + dateString + '"] > .dayDiv').addClass('active');
 					alert(dateString);
 				},
 				eventClick:function(event, element,view){
 					var dateString = dataFormatter(event.start);
+					view.el.find('.fc-day > .dayDiv').removeClass('active');
 					view.el.find('.fc-day[data-date="' + dateString + '"] > .dayDiv').addClass('active');
 					alert(dateString);
 				},
@@ -253,8 +263,7 @@
 							$(this).datetimepicker('show');
 						});
 					}
-					var height = $('.fc-day').height();
-					$('.fc-day').append($('<div/>').addClass("dayDiv").height(height));
+					$('.fc-day').append($('<div/>').addClass("dayDiv"));
 				},
 				events:function(start, end, timezone, callback) {
 					/*实际情况根据start和end走后端ajax*/

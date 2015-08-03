@@ -82,7 +82,7 @@
 		curMenus.removeClass("current");
 		var pNode = node;
 		if (node.level == 0 ) {
-			zTree_Menu.expandNode(node);
+			$.fn.zTree.getZTreeObj("menuTree").expandNode(node);
 			return false;
 		}
 		if (node.level >= 0) {
@@ -119,13 +119,22 @@
 	/*所有查询按钮的事件*/
 	function addQueryBtnEvent(){
 		$('body').on('click','.queryBtn',function(){
-			$(".search-result").load("search_result_body.html", function() {
-				$('#custom,#content-container').show();
-				$("#usual,#mini").hide();
-				dynamicDetailRightHeight();
-			});
+			if(!$(".search-result").find(".loading")[0]){
+				$(".search-result").append('<div class="loading" />');
+			}
+			setTimeout(loadRetBodyPage,3000);
 		});
 	}
+	
+	function loadRetBodyPage(){
+		$(".search-result").load("search_result_body.html", function() {
+			$("#usual,#mini").hide();
+			$('#custom,#content-container').show();
+			dynamicDetailRightHeight();
+			$(".search-result").find(".loading").remove();
+		});	
+	}
+	
 	
 	/*动态改变查询结果后侧的查询结果高度*/
 	function dynamicDetailRightHeight(){
@@ -165,8 +174,8 @@
 			$(this).prev('input').datetimepicker({
 				lang:'ch',
 				timepicker:false,
-				format:'d/m/Y',
-				formatDate:'Y/m/d'
+				format:'Y-m-d',
+				formatDate:'Y-m-d'
 			});
 			$(this).prev('input').datetimepicker('show');
 		});
